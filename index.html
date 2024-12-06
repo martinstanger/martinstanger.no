@@ -2,11 +2,48 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martins nettside</title>
+    <title>Martins Retro Hjemmeside</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+        }
+        a {
+            color: cyan;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: yellow;
+        }
+        .blink {
+            animation: blink 1s steps(2, start) infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            border: 2px dashed lime;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Velkommen til Martins nettside!</h1>
-    <p>Dette er en enkel nettside opprettet med HTML.</p>
+    <h1>🔥 Velkommen til Martins Retro Side! 🔥</h1>
+    <marquee behavior="scroll" direction="left">✨ Dette er toppen av teknologi fra 2006! ✨</marquee>
+    <div class="content">
+        <p>Hei! Dette er min personlige nettside. Her deler jeg mine tanker, linker og rare ideer!</p>
+        <p><a href="https://example.com" target="_blank">Klikk her for noe kult!</a></p>
+        <p class="blink">✨ Blinkende tekst! ✨</p>
+    </div>
+    <footer>
+        <p style="font-size: 12px;">© 2006 Martin - Alle rettigheter forbeholdt</p>
+    </footer>
 </body>
 </html>
