@@ -2,132 +2,217 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>martinstanger.no</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>martinstanger</title>
     <style>
         body {
-            margin: 10px;
-            background-color: black;
-            color: lime;
+            margin: 0;
+            background-color: mediumblue;
+            color: black;
             font-family: "Comic Sans MS", cursive, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            max-width: 960px; /* Maksimal bredde på hele siden */
+            margin: 0 auto; /* Sentraliserer innholdet horisontalt */
+            padding: 0 20px; /* Litt padding på venstre og høyre side */
+        }
+
+        header {
+            background-color: darkblue;
+            color: red;
+            border: 5px solid black;
             text-align: center;
-            width: 60%; /* Smalere kropp */
-            margin: 0 auto; /* Sentraliserer innholdet */
-            display: flex; /* Flexbox layout */
-            justify-content: space-between; /* Split content evenly */
-            flex-direction: column; /* Stack content vertically */
-            min-height: 100vh; /* Ensure the body takes full height */
+            padding: 30px;
+            margin-top: 30px;
         }
-        a {
-            color: cyan;
-            text-decoration: none;
+
+        main {
+            display: flex;
+            flex: 1;
+            background-color: transparent;
+            gap: 100px;
         }
-        a:hover {
-            text-decoration: underline;
-            color: yellow;
-        }
-        .blink {
-            animation: blink 1s steps(2, start) infinite;
-        }
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
+
         .content {
-            margin: 50px auto;
-            width: 100%; /* Reduced width for content box */
-            border: 2px dashed lime;
+            display: flex;
+            flex-direction: column;
+            flex: 2;
+            gap: 20px;
             padding: 20px;
+            border: 5px solid black;
+            background-color: darkblue;
         }
-        /* Box with hjertepattern1.gif background */
+
+        .content > div {
+            flex: 1;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            padding: 20px;
+            border: 5px solid black;
+            background-color: blue;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 20px;
+            padding: 20px;
+            border: 5px solid black;
+            background-color: darkblue;
+        }
+
+        .sidebar > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: right;
+            align-items: left;
+            padding: 20px;
+            border: 5px solid black;
+            background-color: blue;
+        }
+
         .image-box {
-	    align: center;
-    	   width: 100%; /* Set width */
-	       height: 10%; /* Set height */
-	       margin: 10px;
-           background-image: url('gifs/hjertepattern1.gif'); /* Background image */
-	       background-size: 10%; /* Scale the image to 50% of its original size */
-	       background-repeat: repeat; /* Repeat the image to fill the box */
-    	   background-position: top left; /* Align pattern from the top left */
-    	   border: 3px dashed lime; /* Optional border */
-    	   padding: 20px; /* Optional padding */
+            width: 100%; /* Tar opp hele bredden av containeren */
+            max-width: 960px; /* Maksimal bredde på 960px */
+            height: 40px; /* Setter høyden på banneret */
+            background-image: url('gifs/liggendeshootingstars.gif');
+            background-size: 110%; /* Beholder original størrelse på bildet */
+            background-repeat: repeat-x; /* Gjentar bildet horisontalt */
+            background-position: center; /* Plasserer bildet på toppen og sentrert horisontalt */
+            border: 5px solid transparent; /* 5px border rundt bildet */
+            margin-top: 25px; /* Avstand over bildet */
+            margin-bottom: 25px; /* Avstand under bildet */
+            box-sizing: border-box; /* Inkluderer borderen i beregningen av bredde og høyde */
         }
-        /* Old-school e-postboks */
-        .email-box {
+
+
+        .email-box, .instagram-link {
             display: inline-block;
             padding: 10px 20px;
             margin-top: 20px;
-            border: 3px solid red; /* Rød farge */
-            background-color: black;
-            color: red; /* Rød farge */
+            border: 3px solid black;
+            background-color: darkblue;
+            color: white;
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0px 0px 5px red; /* Rød skygge */
+            box-shadow: 0px 0px 10px black;
             transition: all 0.3s ease;
         }
-        .email-box:hover {
-            background-color: red; /* Rød bakgrunn på hover */
-            color: black; /* Svart tekst på hover */
-	    border: 3px;
+
+        .email-box:hover, .instagram-link:hover {
+            background-color: mediumblue;
+            color: red;
+            box-shadow: 0px 0px 15px red;
             transform: scale(1.1);
-            box-shadow: 0px 0px 15px green;
         }
+ 
         .instagram-link {
-            color: red; /* Rød farge */
+            color: white;
             font-size: 16px;
-            text-decoration: none;
-            border: 2px dashed red; /* Rød kant */
-            padding: 5px 10px;
-            margin-top: 20px;
-            display: inline-block;
-            background-color: black;
-            transition: all 0.3s ease;
-            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8); /* Rød skygge */
+            border: 2px solid black;
+            margin-top: 70px;
+            display: inline-flex; /* Bruker inline-flex for å tillate flexbox-styling på lenken */
+            align-items: center; /* Sentraliserer ikonet vertikalt med teksten */
+            justify-content: center; /* Sentraliserer innholdet horisontalt */
+            background-color: darkblue;
+            margin-top: 0px; /* Litt avstand over lenken */
         }
-        .instagram-link:hover {
-            color: black; /* Svart tekst på hover */
-            background-color: red; /* Rød bakgrunn på hover */
-            box-shadow: 0px 0px 20px rgba(255, 0, 0, 1); /* Rød skygge på hover */
-            transform: scale(1.1);
+
+        figure {
+            margin: 0px; /* Fjerner standard margin rundt figure */
+            padding: 0px; /* Fjerner standard padding */
+            text-align: center; /* Sentrerer bildet og bildetekst */
         }
-        .instagram-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 5px;
-            animation: spin 2s linear infinite;
+
+        /* Generell stil for alle bilder */
+        img {
+            display: block; /* Sørger for at bildet ikke påvirker teksten ved å gjøre det til et blokkelement */
+            margin: 0 auto; /* Sentrerer bildet horisontalt */
+            max-width: 100%; /* Sørger for at bildet ikke blir større enn sin container */
+            height: auto; /* Bevarer bildets proporsjoner */
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        /* Spesifikk stil for bilder i .image-box */
+        .image-box img {
+            max-width: 100%; /* Garanterer at disse bildene kan være fullt responsive */
+            height: auto; /* Sørger for at disse bildene beholder proporsjonene sine */
         }
+
+        h4 {
+            position: relative;
+            text-align: center; /* Sentraliserer teksten som standard */
+            margin: 1;
+        }
+        
         footer {
-            margin: 0 auto;
-            text-align: bottom;
-	}
+            background-color: darkblue;
+            color: red;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            border: 5px solid black;
+        }
     </style>
 </head>
 
-<body>
-<div class="image-box">
-</div>
-    <div class="content">
-        <p>jeg hakke så mye på hjertet men send meg mail så skal du se</p>
-
-        <p><a href="mailto:post@martinstanger.no" class="email-box">post@martinstanger.no</a></p>
-
-        <p class="blink">følg meg på insta?????</p>
-
-        <a class="instagram-link" href="https://www.instagram.com/martinstanger/" target="_blank">
-            <img class="instagram-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/800px-Instagram_logo_2022.svg.png" alt="Instagram logo"> 
-            @martinstanger
-        </a>
-
-    </div>
+<!-- CSS SLUTT:3 -->
     
+<body>
+
+<header>
+    <h1>hvem her vil ha meg</h1>
+</header>
+    
+<!-- Øverst i content, Hjertepattern1.gif -->
+<div class="image-box"></div>
+    
+<main>
+    <div class="content">
+        <!-- Øvre del av .content -->
+        <div>
+            <p>jeg hakke så mye på hjertet men send meg en mail så kanskje</p>
+        </div>
+        
+        <!-- Nedre del av .content -->
+        <div>
+            <a href="mailto:post@martinstanger.no" class="email-box">post@martinstanger.no</a>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <!-- Øverste del av .sidebar -->
+        <div>
+        <img src="gifs/onlinenow.gif" alt="online now" />
+            <h1>bidle</h1>
+            <h2>bilde</h2>
+        </div>
+
+        <!-- Midtre del av .sidebar -->
+    <div>
+     <h4>følg meg på insta????</h4>
+            <a class="instagram-link" href="https://www.instagram.com/martinstanger/" target="_blank">
+                @martinstanger
+            </a>
+        </div>
+
+        <!-- Nederste del av .sidebar -->
+        <div>
+                <h2>knurreknurt</h2>
+            <figure>
+    <img src="gifs/minimusikksmiley2.gif" alt="Minimusikk Smiley" />
+            </figure>
+        </div>
+    </aside>
+</main>
+
 <footer>
-        <p style="font-size: 12px;">© 2024 - Bergen, Norge</p>
+    <p>© 2024 - Bergen, Norge</p>
 </footer>
+
 </body>
 </html>
