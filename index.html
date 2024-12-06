@@ -11,6 +11,8 @@
             text-align: center;
             width: 60%; /* Smalere kropp */
             margin: 0 auto; /* Sentraliserer innholdet */
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Split content evenly */
         }
         a {
             color: cyan;
@@ -30,9 +32,19 @@
         }
         .content {
             margin: 50px auto;
-            width: 100%;
+            width: 48%; /* Reduced width for content box */
             border: 2px dashed lime;
             padding: 20px;
+        }
+        /* Box with kisspattern.gif background */
+        .image-box {
+            width: 48%; /* Set width */
+            height: 200px; /* Set height */
+            background-image: url('gifs/kisspattern.gif'); /* Background image */
+            background-size: cover; /* Ensure image covers the box */
+            background-position: center; /* Center the image */
+            border: 2px solid #fff; /* Optional border */
+            padding: 10px; /* Optional padding */
         }
         /* Old-school e-postboks */
         .email-box {
@@ -54,7 +66,6 @@
             transform: scale(1.1);
             box-shadow: 0px 0px 15px yellow;
         }
-        /* Instagram link styles */
         .instagram-link {
             color: red; /* Rød farge */
             font-size: 16px;
@@ -87,10 +98,6 @@
     </style>
 </head>
 <body>
-    <h1>velkommen til min nettside<3
-<img src="gifs/cddisc.gif" alt="cddisc"></h1>
-    <marquee behavior="scroll" direction="left">vipps meg hvis du elsker meg (452 44 129)<img src="gifs/bobleropp.gif" alt="Bobleropp">
-</marquee>
     <div class="content">
         <p>jeg har ikke så mye på hjertet, men send meg en mail om du har noe på hjertet ditt davel</p>
         <p><a href="mailto:post@martinstanger.no" class="email-box">post@martinstanger.no</a></p>
@@ -100,8 +107,12 @@
             @martinstanger
         </a>
     </div>
+
+    <div class="image-box">
+        <!-- This box now has the kisspattern.gif as the background -->
+    </div>
+    
     <footer>
-	<img src="gifs/bobleropp.gif" alt="Bobleropp">
         <p style="font-size: 12px;">© 2024 - Bergen, Norge</p>
     </footer>
 </body>
