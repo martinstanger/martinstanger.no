@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>martinstanger</title>
+    <style>
+        
+        @font-face {
+            font-family: "RetroGaming";
+            src: url("WEBSITES/fonts/retro%20gaming.ttf") format("truetype");
+        }
+
+        body {
+            margin: 0;
+            background-color: black;
+            color: black;
+            font-family: "retrogaming";
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: black;
+            color: red;
+            border: 1px solid red;
+            text-align: center;
+            height: 250px;
+            margin-top: 230px;
+            box-shadow: 0px 0px 15px 4px red;
+            position: relative;
+        }
+
+        .header-image {
+            position: absolute;
+            top: -150px; /* Juster posisjonen til bildet */
+            left: -150px; /* Juster posisjonen til bildet */
+            width: 35%; /* Juster størrelsen på bildet */
+            height: auto;
+            z-index: 10; /* Sørger for at bildet vises over header */
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+
+        }
+
+        .menu button {
+            flex: 2;
+            padding: 10px;
+            margin-left: 4px;
+            background-image: url("gifs/images/btn_knap.png");
+            background-size: cover;
+            background-position: right;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            color: white;
+            font-size: 16px;
+            font-family: "retrogaming";
+            font-weight: normal;
+            text-transform: uppercase;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 0px 10px 1px white;
+        }
+
+        .menu button:hover {
+            color: red;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px 1px red;
+            border: 1px solid red;
+        }
+        
+        main {
+            display: flex;
+            flex: 1;
+            background-color: transparent;
+            gap: 150px;
+            margin-top: 50px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex: 2;
+            gap: 100px;
+            text-align: left;
+        }
+
+        .content > div {
+            flex: 2;
+            display: flex;
+            justify-content: right;
+            color: red;
+            padding: 30px;
+            position: relative;
+            background-color: black;
+            border: 1px solid red;
+            box-shadow: 0px 0px 15px 4px red;
+            overflow: hidden;
+            border-radius: 0px;
+        }
+        
+        .content .action-button {
+            position: absolute; /* For å plassere knappen relativt til foreldre-div */
+            bottom: 10px;       /* Avstand fra bunnen av div-en */
+            right: 10px;        /* Avstand fra høyre side av div-en */
+            flex: unset;        /* Fjern flex-egenskaper som brukes i .menu */
+            padding: 10px;      /* Samme padding som i .menu */
+            margin: 0;          /* Nullstill margin */
+            background-image: url("gifs/images/btn_knap.png"); /* Samme bakgrunn som .menu */
+            background-size: cover;
+            background-position: right;
+            border-radius: 5px; /* Juster radius hvis nødvendig */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: "RetroGaming", sans-serif; /* Sørg for fonten */
+            border: 1px solid white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 0px 10px 1px white;
+        }
+
+        .content .action-button:hover {
+            color: red;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px 1px red;
+            border: 1px solid red;
+        }
+
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: auto;
+            gap: 100px;
+            padding: 0px; 
+            margin-top: 250px;
+            border-radius: 0px;
+            background-color: black;
+            box-shadow: 0px 0px 15px 4px black;
+        }
+        
+        .sidebar > div {
+            flex: 2;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            padding: 30px;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            background-color: black;
+            border: 1px solid red;
+            box-shadow: 0px 0px 15px 4px red;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        footer {
+            background-color: black;
+            color: red;
+            text-align: center;
+            padding: 0px;
+            margin-top: 50px;
+            border: 1px solid red;
+            box-shadow: 0px 0px 15px 4px red;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="gifs/images/images/stjernemeg.png" alt="Header Image" class="header-image">
+    <h1>hvem her vil ha meg</h1>
+</header>
+
+<div class="menu">
+    <button>home</button>
+    <button>music</button>
+    <button>vj-gigs</button>
+    <button>posters</button>
+    <button>commissions</button>
+</div>
+
+<main>
+    <div class="content">
+        <div>
+            <p>jeg hakke så mye på hjertet men send meg en mail så kanskjejeg hakke så mye på hjertet men send meg en mail så kanskjejeg hakke så mye på hjertet men send meg en mail så kanskjejeg hakke så m</p>
+            <button class="action-button">send mail</button>
+        </div>
+        
+        <div>
+            <button class="action-button">send mail</button>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div>
+
+            <p>haloi</p>
+        </div>
+        <div>
+        </div>
+
+    </aside>
+</main>
+
+<footer>
+    <p>© 2024 - Bergen, Norge</p>
+</footer>
+</body>
+</html>
