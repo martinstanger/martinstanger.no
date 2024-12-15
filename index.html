@@ -223,28 +223,37 @@
             border: 2px solid red;
             border-radius: 5px;
             text-align: center;
-            box-shadow: 0px 0px 15px 4px blue;
+            box-shadow: 0px 0px 250px 140px black;
         }
 
         .hidden {
             display: none;
         }
 
-        #close-popup {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: red;
+         #close-popup {
+            position: absolute;
+            top: 10px;       /* Avstand fra toppen */
+            right: 10px;     /* Avstand fra høyre kant */
+            padding: 10px;
+            background-image: url("gifs/images/btn_knap.png");
+            background-size: cover;
+            background-position: right;
+            border-radius: 5px;
             color: white;
-            border: none;
+            font-size: 16px;
+            text-transform: uppercase;
             font-family: "RetroGaming";
+            border: 1px solid white;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 0px 10px 1px white;
         }
 
         #close-popup:hover {
-            background-color: white;
             color: red;
             transform: scale(1.1);
+            box-shadow: 0px 0px 10px 1px red;
+            border: 1px solid red;
         }
 
         
@@ -293,7 +302,6 @@
 
     <aside class="sidebar">
         <div>
-
             <p>haloi</p>
         </div>
         <div>
@@ -304,10 +312,10 @@
     
     <!-- Legg til etter eksisterende HTML, før slutten av body -->
 <div id="popup" class="popup hidden">
-    <div class="popup-content">
-        <h2>plakater</h2>
-        <p>Her kan du se eller laste ned posters.</p>
-        <button id="close-popup">lukk</button>
+    <div class="popup-content" style="position: relative;">
+        <button id="close-popup" class="action-button">lukk</button>
+            <h2>plakater</h2>
+        <div><img src="gifs/chemboyblinkie.gif"></div>
     </div>
 </div>
 
