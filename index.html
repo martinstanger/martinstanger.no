@@ -207,8 +207,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100%; /* Full bredde for å dekke skjermen */
+            height: 100%; /* Full høyde for å dekke skjermen */
             background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
@@ -217,6 +217,7 @@
         }
 
         .popup-content {
+            position: relative; /* For å plassere "lukk"-knappen i forhold til innholdet */
             background-color: black;
             color: red;
             padding: 20px;
@@ -224,20 +225,38 @@
             border-radius: 5px;
             text-align: center;
             box-shadow: 0px 0px 250px 140px black;
+            width: 80%; /* Juster størrelsen på pop-up-boksen */
+            max-height: 80%; /* Begrens høyden for å tillate scrolling */
+            overflow-y: auto; /* Gjør det mulig å scrolle innholdet */
         }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* To kolonner */
+            gap: 20px; /* Avstand mellom bildene */
+            margin-top: 20px;
+        }
+
+        .image-grid img {
+            width: 100%; /* Fyll kolonnen */
+            height: auto; /* Bevar bildeforholdet */
+            border: 2px solid red; /* Optional: legg til ramme */
+            box-shadow: 0px 0px 10px 2px red;
+        }
+
 
         .hidden {
             display: none;
         }
 
-         #close-popup {
-            position: absolute;
-            top: 10px;       /* Avstand fra toppen */
-            right: 10px;     /* Avstand fra høyre kant */
+        #close-popup {
+            position: absolute; /* Posisjoneres i forhold til .popup */
+            top: 50px;          /* Avstand fra toppen av popup */
+            right: 215px;        /* Avstand fra høyre kant av popup */
             padding: 10px;
             background-image: url("gifs/images/btn_knap.png");
             background-size: cover;
-            background-position: right;
+            background-position: center;
             border-radius: 5px;
             color: white;
             font-size: 16px;
@@ -247,6 +266,7 @@
             cursor: pointer;
             transition: transform 0.3s ease;
             box-shadow: 0px 0px 10px 1px white;
+            z-index: 1010; /* Sørg for at knappen er over alt */
         }
 
         #close-popup:hover {
@@ -256,7 +276,6 @@
             border: 1px solid red;
         }
 
-        
         footer {
             background-color: black;
             color: red;
@@ -306,18 +325,24 @@
         </div>
         <div>
         </div>
-
     </aside>
 </main>
     
-    <!-- Legg til etter eksisterende HTML, før slutten av body -->
-<div id="popup" class="popup hidden">
-    <div class="popup-content" style="position: relative;">
-        <button id="close-popup" class="action-button">lukk</button>
-            <h2>plakater</h2>
-        <div><img src="gifs/chemboyblinkie.gif"></div>
+        <!-- Legg til etter eksisterende HTML, før slutten av body -->
+    <div id="popup" class="popup hidden">
+        <button id="close-popup">lukk</button> <!-- Flyttet ut av .popup-content -->
+        <div class="popup-content">
+            <h2>Posters</h2>
+            <p>Her kan du se eller laste ned posters.</p>
+            <div class="image-grid">
+                <img src="posters/nyestehabboposter.png" alt="Poster 1">
+                <img src="posters/meteor_poster_1080x1920px.png" alt="Poster 2">
+                <img src="posters/nyestehabboposter3.png" alt="Poster 3">
+                <img src="posters/nyestehabboposter4.png" alt="Poster 4">
+            </div>
+        </div>
     </div>
-</div>
+
 
     <!-- FOOTER -->
 <footer>
