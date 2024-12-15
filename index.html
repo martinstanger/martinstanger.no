@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>martinstanger</title>
+    
     <style>
         
     @font-face {
@@ -26,6 +27,34 @@
             max-width: 960px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .scrolling-text {
+            position: absolute;
+            top: 0; /* Plassering bak header-image */
+            left: 0;
+            width: 100%; /* Samme bredde som header */
+            overflow: hidden;
+            white-space: nowrap;
+            z-index: 5; /* Ett lag bak header-image */
+        }
+
+        .scrolling-text span {
+            display: inline-block;
+            font-family: "RetroGaming";
+            font-size: 24px;
+            color: red;
+            animation: scroll 10s linear infinite, blink 1.5s step-start infinite;
         }
 
         header {
@@ -119,7 +148,7 @@
             flex: unset;        /* Fjern flex-egenskaper som brukes i .menu */
             padding: 10px;      /* Samme padding som i .menu */
             margin: 0;          /* Nullstill margin */
-            background-image: url("martinstanger.no/gifs/images/btn_knap.png"); /* Samme bakgrunn som .menu */
+            background-image: url("gifs/images/btn_knap.png"); /* Samme bakgrunn som .menu */
             background-size: cover;
             background-position: right;
             border-radius: 5px; /* Juster radius hvis nødvendig */
@@ -186,7 +215,12 @@
     <img src="gifs/images/images/stjernemeg.png" alt="Header Image" class="header-image">
     <h1>hvem her vil ha meg</h1>
 </header>
+    
+    <div class="scrolling-text">
+    <span>VELKOMMEN MIN HJEMMESIDE</span>
+    </div>
 
+ 
 <div class="menu">
     <button>home</button>
     <button>music</button>
