@@ -205,8 +205,8 @@
         /* CSS for pop-up */
         .popup {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0px;
+            left: 0px;
             width: 100%; /* Full bredde for å dekke skjermen */
             height: 100%; /* Full høyde for å dekke skjermen */
             background-color: rgba(0, 0, 0, 0.8);
@@ -218,41 +218,50 @@
 
         .popup-content {
             position: relative; /* For å plassere "lukk"-knappen i forhold til innholdet */
-            background-color: black;
-            color: red;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
             padding: 20px;
-            border: 2px solid red;
+            border: 2px solid white;
             border-radius: 5px;
             text-align: center;
-            box-shadow: 0px 0px 250px 140px black;
+            box-shadow: 0px 0px 70px 40px black;
             width: 80%; /* Juster størrelsen på pop-up-boksen */
-            max-height: 80%; /* Begrens høyden for å tillate scrolling */
+            max-height: 85%; /* Begrens høyden for å tillate scrolling */
             overflow-y: auto; /* Gjør det mulig å scrolle innholdet */
         }
 
         .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* To kolonner */
+            display: grid; /* Bruker grid-layout i stedet for flex */
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Automatisk fylling av kolonner */
             gap: 20px; /* Avstand mellom bildene */
-            margin-top: 20px;
+            padding: 10px;
         }
 
         .image-grid img {
-            width: 100%; /* Fyll kolonnen */
-            height: auto; /* Bevar bildeforholdet */
-            border: 2px solid red; /* Optional: legg til ramme */
-            box-shadow: 0px 0px 10px 2px red;
+            width: 100%; /* Bildene fyller bredden på sine celler */
+            height: auto; /* Bildenes høyde justeres etter proporsjoner */
+            object-fit: contain; /* Sørger for at bildene ikke beskjæres */
+            border: 1px solid white; /* Ekstra styling for bildene */
+            box-shadow: 0px 0px 10px 1px white; /* Ekstra styling for bildene */
+        }
+
+                /* Juster Poster 3 for å flytte den 30px opp */
+        .image-grid img:nth-child(3) {
+            position: relative;
+            top: -25vh; /* Flytter Poster 3 opp */
         }
 
 
+        /* Skjul pop-up når den ikke er aktiv */
         .hidden {
             display: none;
         }
 
+        /* Styling for lukk-knappen */
         #close-popup {
-            position: absolute; /* Posisjoneres i forhold til .popup */
-            top: 50px;          /* Avstand fra toppen av popup */
-            right: 215px;        /* Avstand fra høyre kant av popup */
+            position: absolute;
+            top: 40px; /* Avstand fra toppen av popup */
+            right: 20px; /* Avstand fra høyre kant av popup */
             padding: 10px;
             background-image: url("gifs/images/btn_knap.png");
             background-size: cover;
@@ -266,7 +275,7 @@
             cursor: pointer;
             transition: transform 0.3s ease;
             box-shadow: 0px 0px 10px 1px white;
-            z-index: 1010; /* Sørg for at knappen er over alt */
+            z-index: 1010;
         }
 
         #close-popup:hover {
@@ -275,6 +284,7 @@
             box-shadow: 0px 0px 10px 1px red;
             border: 1px solid red;
         }
+
 
         footer {
             background-color: black;
@@ -332,12 +342,12 @@
     <div id="popup" class="popup hidden">
         <button id="close-popup">lukk</button> <!-- Flyttet ut av .popup-content -->
         <div class="popup-content">
-            <h2>Posters</h2>
-            <p>Her kan du se eller laste ned posters.</p>
+            <h2>PLAKATER</h2>
+            <p>tidligere plakater jeg har laget til diverse klubber og arrangementer</p>
             <div class="image-grid">
                 <img src="posters/nyestehabboposter.png" alt="Poster 1">
                 <img src="posters/meteor_poster_1080x1920px.png" alt="Poster 2">
-                <img src="posters/nyestehabboposter3.png" alt="Poster 3">
+                <img src="posters/postersuperslut.png" alt="Poster 3">
                 <img src="posters/nyestehabboposter4.png" alt="Poster 4">
             </div>
         </div>
