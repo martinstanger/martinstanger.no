@@ -60,7 +60,7 @@
             white-space: nowrap; /* Ingen linjeskift */
         }
 
-                header {
+        header {
             background-color: black;
             color: red;
             border: 1px solid red;
@@ -295,6 +295,81 @@
             border: 1px solid red;
             box-shadow: 0px 0px 15px 4px red;
         }
+        
+        /* MP3-spiller styling */
+        .mp3-player {
+            position: fixed;
+            top: 20%; /* Plasser den 50 px fra toppen av skjermen */
+            left: calc(960px + 27%); /* 960px (max body width) + 50px (ønsket avstand) + 20px (body padding) */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 0px 15px 15px;
+            background-color: #000000;
+            border: 0px solid white;
+            box-shadow: inset 0px 4px 10px 0px white, 0px 0px 8px 0px white;
+            border-radius: 15px;
+            width: 150px;
+            text-align: center;
+            text-shadow: 0px 1px 14px black;
+            z-index: 500; /* Sikrer at den alltid er over annet innhold */
+            overflow: hidden;
+        }
+
+        .mp3-player button {
+            all: unset;
+            /* Bakgrunnsgradient */
+            background: linear-gradient(to top, #ffffff, #0f1f36);
+            color: #e6e6e6;
+            font-family: "RetroGaming";
+            font-size: 17px;
+            padding: 0px 5px;
+            width: 25%;
+            cursor: pointer;
+            position: relative;
+            margin: 1px;
+            text-align: center;
+            text-shadow: 0px 0px 2px #000000;
+            box-shadow: inset 0px -1px 4px 2px #464646, 0px 0px 15px 3px #1d1d1d;
+            border-radius: 4px;
+
+        }
+
+        .mp3-player button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: 0px 1px 40px 10px white;
+            filter: blur(25px); /* Skaper en soft glød */
+            z-index: -1; /* Plasserer skyggen bak knappen */
+        }
+
+        .mp3-player button:hover {
+            background: white;
+            color: black;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: black;
+            margin-top: 10px;
+            box-shadow: inset 0px 0px 1px 1px #5f5f5f, 0px 0px 3px 0px #000000;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(to top, #ffffff, #0f1f36);
+            border-radius: 3px;
+            width: 10%;
+        }
     </style>
 </head>
 <body>
@@ -302,7 +377,6 @@
 <header>
     <img src="gifs/images/images/stjernemeg.png" alt="Header Image" class="header-image">
     <h1>hvem her vil ha meg</h1>
-    
 </header>
  
         <div class="scrolling-text">
@@ -331,12 +405,23 @@
 
     <aside class="sidebar">
         <div>
-            <p>haloi</p>
         </div>
         <div>
         </div>
     </aside>
+            <!-- MP3-spiller -->
+    <div class="mp3-player">
+        <p>MP3</p>
+        <audio id="audio" src="MP3player/tbtv_20.bassboost.tempomod.wav"></audio>
+        <button id="play">▶</button>
+        <button id="pause">⏸</button>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </div>
+
 </main>
+
     
         <!-- Legg til etter eksisterende HTML, før slutten av body -->
     <div id="popup" class="popup hidden">
@@ -360,6 +445,26 @@
 </footer>
     
     <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("audio");
+        const playBtn = document.getElementById("play");
+        const pauseBtn = document.getElementById("pause");
+        const progress = document.getElementById("progress");
+
+        playBtn.addEventListener("click", () => {
+            audio.play();
+        });
+
+        pauseBtn.addEventListener("click", () => {
+            audio.pause();
+        });
+
+        audio.addEventListener("timeupdate", () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.style.width = percent + "%";
+        });
+    });
+
     document.addEventListener("DOMContentLoaded", () => {
         const popup = document.getElementById("popup");
         const closePopup = document.getElementById("close-popup");
